@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if object.pk %}Edit{% else %}Create{% endif %} Post</title>
+</head>
+<body>
+    <h1>{% if object.pk %}Edit{% else %}Create{% endif %} Post</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'post_list' %}">Cancel</a>
+</body>
+</html>

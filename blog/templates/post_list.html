@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog</title>
+</head>
+<body>
+    <h1>My Blog</h1>
+    {% for post in object_list %}
+        <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+        <p>{{ post.content|truncatechars:50 }}</p>
+    {% endfor %}
+    <a href="{% url 'post_create' %}">Create new post</a>
+</body>
+</html>
